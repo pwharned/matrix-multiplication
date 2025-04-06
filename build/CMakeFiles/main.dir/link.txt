@@ -1,0 +1,1 @@
+/usr/bin/c++  -g -O3 -mavx512f -fopenmp CMakeFiles/main.dir/src/main.cpp.o -o main
