@@ -1,4 +1,5 @@
 #include <cmath>
+#include <omp.h>
 #include <iostream>
 #include <cstring>
 #include <immintrin.h>  // Header for AVX intrinsics
@@ -43,7 +44,7 @@ void MY_MMult( int m, int n, int k, double *a, int lda,
   int i, p, pb, ib;
 
   /* This time, we compute a mc x n block of C by a call to the InnerKernel */
-
+  #pragma omp parallel for
   for ( p=0; p<k; p+=kc ){
     pb = min( k-p, kc );
     for ( i=0; i<m; i+=mc ){
